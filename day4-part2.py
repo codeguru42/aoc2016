@@ -18,7 +18,8 @@ class Day4(unittest.TestCase):
     self.assertFalse(isRealRoom("totally-real-room-200[decoy]"))
 
   def test5(self):
-    self.assertEquals("very encrypted name", decryptRoomName("qzmt-zixmtkozy-ivhz-343"))
+    self.assertEqual("very encrypted name"
+        , decryptRoomName("qzmt-zixmtkozy-ivhz-343[zimth]"))
 
 def alphaCount(text):
   counts = dict()
