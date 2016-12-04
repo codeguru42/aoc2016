@@ -28,8 +28,8 @@ def alphaCount(text):
 
   return counts
 
+roomRegEx = '([a-z]+(?:-[a-z]+)*)-([0-9]+)\[([a-z]+)\]'
 def isRealRoom(room):
-  roomRegEx = '([a-z]+(?:-[a-z]+)*)-([0-9]+)\[([a-z]+)\]'
   m = re.fullmatch(roomRegEx, room)
   if m:
     c = alphaCount(m.group(0))
@@ -40,9 +40,12 @@ def isRealRoom(room):
   return False
 
 def main():
-  for line in sys.stdin:
-    print(line)
+  lines = sys.stdin.readlines()
+  rooms = filter(lambda line : isRealRoom(line.strip()), lines)
+  matches = map(lambda room : re.fullmatch(roomRegEx, room.strip()), rooms)
+  ids = [int(m.group(2)) for m in matches]
+  print(sum(ids))
 
 if __name__ == "__main__":
-  unittest.main()
+  unittest.main(exit=False)
   main()
