@@ -11,24 +11,38 @@ with open(sys.argv[1]) as f:
   east = 0
   currDir = 'N'
   visited = set()
-  visited.add((0, 0))
   for line in f:
     moves = line.strip().split(',')
     for move in moves:
+      print('move: {0}, north: {1}, east: {2}'.format(move, north, east))
       move = move.strip()
       currDir = turns[currDir][move[0]]
       blocks = int(move[1:])
       if currDir == 'N':
-        north += blocks
+        for north in range(north, north + blocks):
+          if (north, east) in visited:
+            print(abs(north) + abs(east))
+            exit(0)
+          visited.add((north, east))
+          north += 1
       elif currDir == 'S':
-        north -= blocks
+        for north in range(north, north - blocks, -1):
+          if (north, east) in visited:
+            print(abs(north) + abs(east))
+            exit(0)
+          visited.add((north, east))
+          north -= 1
       elif currDir == 'E':
-        east += blocks
+        for east in range(east, east + blocks):
+          if (north, east) in visited:
+            print(abs(north) + abs(east))
+            exit(0)
+          visited.add((north, east))
+          east += 1
       elif currDir == 'W':
-        east -= blocks
-
-      if (east, north) in visited:
-        print(abs(north) + abs(east))
-        break
-      visited.add((east, north))
-      print('move: {0}, north: {1}, east: {2}'.format(move, north, east))
+        for east in range(east, east - blocks, -1):
+          if (north, east) in visited:
+            print(abs(north) + abs(east))
+            exit(0)
+          visited.add((north, east))
+          east -= 1
