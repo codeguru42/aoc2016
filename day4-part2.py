@@ -32,15 +32,23 @@ def alphaCount(text):
 
   return counts
 
-roomRegEx = '([a-z]+(?:-[a-z]+)*)-([0-9]+)\[([a-z]+)\]'
-def isRealRoom(room):
-  m = re.fullmatch(roomRegEx, room)
+def parseRoom(room):
+  roomRegEx = '([a-z]+(?:-[a-z]+)*)-([0-9]+)\[([a-z]+)\]'
+  m = re.match(roomRegEx, room)
   if m:
-    c = alphaCount(m.group(0))
+    return (m.group(1), int(m.group(2)), m.group(3))
+  return None
+
+def isRealRoom(room):
+  roomData = parseRoom(room)
+  if roomData:
+    c = alphaCount(roomData[0])
     sorted_c = sorted(c.items(), key=lambda x : (-x[1], x[0]))
     letters = [pair[0] for pair in sorted_c[:5]]
     checksum = ''.join(letters)
-    return checksum == m.group(3)
+    print(c)
+    print(checksum)
+    return checksum == roomData[2]
   return False
 
 def main():
