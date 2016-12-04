@@ -1,10 +1,12 @@
+import sys
+
 turns = { 'N' : { 'L' : 'W', 'R' : 'E' }
         , 'S' : { 'L' : 'E', 'R' : 'W' }
         , 'E' : { 'L' : 'N', 'R' : 'S' }
         , 'W' : { 'L' : 'S', 'R' : 'N' }
         }
 
-with open("day1.txt") as f:
+with open(sys.argv[1]) as f:
   north = 0
   east = 0
   currDir = 'N'
