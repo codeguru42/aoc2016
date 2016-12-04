@@ -32,11 +32,10 @@ def isRealRoom(room):
   m = re.fullmatch(roomRegEx, room)
   if m:
     c = alphaCount(m.group(0))
-    sorted_c = sorted(c.items(), key=operator.itemgetter(1), reverse=True)
+    sorted_c = sorted(c.items(), key=lambda x : (-x[1], x[0]))
     letters = [pair[0] for pair in sorted_c[:5]]
-    print(letters)
-    print(m.groups())
-    return ''.join(letters) == m.group(2)
+    checksum = ''.join(letters)
+    return checksum == m.group(3)
   return False
 
 if __name__ == "__main__":
