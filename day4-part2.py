@@ -46,8 +46,6 @@ def isRealRoom(room):
     sorted_c = sorted(c.items(), key=lambda x : (-x[1], x[0]))
     letters = [pair[0] for pair in sorted_c[:5]]
     checksum = ''.join(letters)
-    print(c)
-    print(checksum)
     return checksum == roomData[2]
   return False
 
@@ -59,18 +57,16 @@ def decryptRoomName(room):
   if isRealRoom(room):
     roomData = parseRoom(room)
     if roomData:
-      print("roomData:", roomData)
       decryptedRoom = [decrypt(x) for x in roomData[0]]
       return ''.join(decryptedRoom)
     return None
   return None
 
 def main():
-  lines = sys.stdin.readlines()
-  rooms = filter(lambda line : isRealRoom(line.strip()), lines)
-  matches = map(lambda room : re.fullmatch(roomRegEx, room.strip()), rooms)
-  ids = [int(m.group(2)) for m in matches]
-  print(sum(ids))
+  for line in sys.stdin:
+    roomName = decryptRoomName(line.strip())
+    if roomName:
+      print(roomName)
 
 if __name__ == "__main__":
   unittest.main(exit=False)
