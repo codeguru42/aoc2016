@@ -1,6 +1,26 @@
+turns = { 'N' : { 'L' : 'W', 'R' : 'E' }
+        , 'S' : { 'L' : 'E', 'R' : 'W' }
+        , 'E' : { 'L' : 'N', 'R' : 'S' }
+        , 'W' : { 'L' : 'S', 'R' : 'N' }
+        }
+
 with open("day1.txt") as f:
   north = 0
   east = 0
+  currDir = 'N'
   for line in f:
     moves = line.strip().split(',')
-    print(moves)
+    for move in moves:
+      move = move.strip()
+      currDir = turns[currDir][move[0]]
+      blocks = int(move[1])
+      if currDir == 'N':
+        north += blocks
+      elif currDir == 'S':
+        north -= blocks
+      elif currDir == 'E':
+        east += blocks
+      elif currDir == 'W':
+        east += blocks
+
+  print(abs(north) + abs(east))
