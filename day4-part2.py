@@ -51,6 +51,20 @@ def isRealRoom(room):
     return checksum == roomData[2]
   return False
 
+def decryptRoomName(room):
+  def decrypt(x):
+    if x == '-':
+      return ' '
+    return chr((ord(x) - ord('a') + roomData[1]) % 26 + ord('a'))
+  if isRealRoom(room):
+    roomData = parseRoom(room)
+    if roomData:
+      print("roomData:", roomData)
+      decryptedRoom = [decrypt(x) for x in roomData[0]]
+      return ''.join(decryptedRoom)
+    return None
+  return None
+
 def main():
   lines = sys.stdin.readlines()
   rooms = filter(lambda line : isRealRoom(line.strip()), lines)
