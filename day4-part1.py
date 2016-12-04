@@ -32,7 +32,7 @@ roomRegEx = '([a-z]+(?:-[a-z]+)*)-([0-9]+)\[([a-z]+)\]'
 def isRealRoom(room):
   m = re.fullmatch(roomRegEx, room)
   if m:
-    c = alphaCount(m.group(0))
+    c = alphaCount(m.group(1))
     sorted_c = sorted(c.items(), key=lambda x : (-x[1], x[0]))
     letters = [pair[0] for pair in sorted_c[:5]]
     checksum = ''.join(letters)
