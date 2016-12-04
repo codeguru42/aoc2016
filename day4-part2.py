@@ -66,7 +66,9 @@ def main():
   for line in sys.stdin:
     roomName = decryptRoomName(line.strip())
     if roomName:
-      print(roomName)
+      if roomName.find("northpole object") != -1:
+        roomData = parseRoom(line.strip())
+        print(roomData[1])
 
 if __name__ == "__main__":
   unittest.main(exit=False)
