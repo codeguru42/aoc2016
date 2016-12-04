@@ -2,6 +2,7 @@ import unittest
 import re
 import string
 import operator
+import sys
 
 class Day4(unittest.TestCase):
   def test1(self):
@@ -38,5 +39,10 @@ def isRealRoom(room):
     return checksum == m.group(3)
   return False
 
+def main():
+  for line in sys.stdin:
+    print(line)
+
 if __name__ == "__main__":
   unittest.main()
+  main()
