@@ -15,7 +15,7 @@ with open(sys.argv[1]) as f:
     for move in moves:
       move = move.strip()
       currDir = turns[currDir][move[0]]
-      blocks = int(move[1])
+      blocks = int(move[1:])
       if currDir == 'N':
         north += blocks
       elif currDir == 'S':
@@ -23,6 +23,7 @@ with open(sys.argv[1]) as f:
       elif currDir == 'E':
         east += blocks
       elif currDir == 'W':
-        east += blocks
+        east -= blocks
+      print('move: {0}, north: {1}, east: {2}'.format(move, north, east))
 
   print(abs(north) + abs(east))
