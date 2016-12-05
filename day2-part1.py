@@ -1,4 +1,5 @@
 import unittest
+import sys
 
 class Day2(unittest.TestCase):
   def test(self):
@@ -20,7 +21,7 @@ def getBathroomCode(instructions):
   return ''.join(map(str, code))
 
 def main():
-  pass
+  print(getBathroomCode(sys.stdin.read()))
 
 if __name__ == "__main__":
   unittest.main(exit=False)
