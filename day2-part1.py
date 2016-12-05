@@ -11,16 +11,24 @@ class Day2(unittest.TestCase):
     self.assertEqual('23647', getBathroomCode(instructions))
 
 def getBathroomCode(instructions):
-  moves = {'U':-3, 'D':+3, 'L':-1, 'R':+1}
+  movesx = { 'U': 0 , 'D':0 , 'L':-1, 'R':1 }
+  movesy = { 'U':-1 , 'D':1 , 'L': 0, 'R':0 }
   code = []
-  pos = 5
+  x = 1
+  y = 1
 
   for line in instructions.split('\n'):
     for c in line:
-      pos += moves[c]
-      if pos < 1 or pos > 9:
-        pos -= moves[c]
-    code.append(pos)
+      x += movesx[c]
+      y += movesy[c]
+
+      if x < 0 or x > 2:
+        x -= movesx[c]
+
+      if y < 0 or y > 2:
+        y -= movesy[c]
+
+    code.append(3*y + x + 1)
 
   return ''.join(map(str, code))
 
