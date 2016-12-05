@@ -2,9 +2,13 @@ import unittest
 import sys
 
 class Day2(unittest.TestCase):
-  def test(self):
+  def test1(self):
     instructions = "ULL\nRRDDD\nLURDL\nUUUUD"
     self.assertEqual('1985', getBathroomCode(instructions))
+
+  def test2(self):
+    instructions = "UU\nRR\nDR\nLLL\nDL"
+    self.assertEqual('23647', getBathroomCode(instructions))
 
 def getBathroomCode(instructions):
   moves = {'U':-3, 'D':+3, 'L':-1, 'R':+1}
