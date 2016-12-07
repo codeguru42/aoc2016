@@ -18,17 +18,18 @@ def getBathroomCode(instructions):
   y = 1
 
   for line in instructions.split('\n'):
-    for c in line:
-      x += movesx[c]
-      y += movesy[c]
+    if line:
+      for c in line:
+        x += movesx[c]
+        y += movesy[c]
 
-      if x < 0 or x > 2:
-        x -= movesx[c]
+        if x < 0 or x > 2:
+          x -= movesx[c]
 
-      if y < 0 or y > 2:
-        y -= movesy[c]
+        if y < 0 or y > 2:
+          y -= movesy[c]
 
-    code.append(3*y + x + 1)
+      code.append(3*y + x + 1)
 
   return ''.join(map(str, code))
 
