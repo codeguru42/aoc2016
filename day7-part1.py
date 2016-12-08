@@ -17,6 +17,34 @@ class Day7Part1(unittest.TestCase):
     ip = "ioxxoj[asdfgh]zxcvbn"
     self.assertTrue(supportsTLS(ip))
 
+  def test5(self):
+    s = 'abba'
+    self.assertTrue(containsABBA(s))
+
+  def test6(self):
+    s = 'abcd'
+    self.assertFalse(containsABBA(s))
+
+  def test7(self):
+    s = 'aaaa'
+    self.assertFalse(containsABBA(s))
+
+  def test8(self):
+    s = 'ioxxo'
+    self.assertTrue(containsABBA(s))
+
+  def test9(self):
+    s = 'bddb'
+    self.assertTrue(containsABBA(s))
+
+  def test10(self):
+    s = 'xyyx'
+    self.assertTrue(containsABBA(s))
+
+  def test11(self):
+    s = 'qrst'
+    self.assertTrue(containsABBA(s))
+
 def main():
   pass
 
