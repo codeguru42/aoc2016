@@ -4,11 +4,11 @@ import sys
 class Day2(unittest.TestCase):
   def test1(self):
     instructions = "ULL\nRRDDD\nLURDL\nUUUUD"
-    self.assertEqual('1985', getBathroomCode(instructions))
+    self.assertEqual('5DB3', getBathroomCode(instructions))
 
   def test2(self):
     instructions = "UU\nRR\nDR\nLLL\nDL"
-    self.assertEqual('23647', getBathroomCode(instructions))
+    self.assertEqual('57CAA', getBathroomCode(instructions))
 
 def getBathroomCode(instructions):
   movesx = { 'U': 0 , 'D':0 , 'L':-1, 'R':1 }
