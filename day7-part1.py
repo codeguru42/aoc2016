@@ -1,5 +1,6 @@
 import unittest
 import re
+import sys
 
 class Day7Part1(unittest.TestCase):
   def test1(self):
@@ -68,7 +69,7 @@ def supportsTLS(ip):
   return ipABBA and not hypernetABBA
 
 def main():
-  pass
+  print(sum(bool(supportsTLS(ip)) for ip in sys.stdin))
 
 if __name__ == "__main__":
   unittest.main(exit=False)
