@@ -11,11 +11,19 @@ class Day2(unittest.TestCase):
     self.assertEqual('57CAA', getBathroomCode(instructions))
 
 def getBathroomCode(instructions):
+  keypad = [ ['*', '*', '*', '*', '*', '*', '*']
+           , ['*', '*', '*', '1', '*', '*', '*']
+           , ['*', '*', '2', '3', '4', '*', '*']
+           , ['*', '5', '6', '7', '8', '9', '*']
+           , ['*', '*', 'A', 'B', 'C', '*', '*']
+           , ['*', '*', '*', 'D', '*', '*', '*']
+           , ['*', '*', '*', '*', '*', '*', '*']
+           ]
   movesx = { 'U': 0 , 'D':0 , 'L':-1, 'R':1 }
   movesy = { 'U':-1 , 'D':1 , 'L': 0, 'R':0 }
   code = []
   x = 1
-  y = 1
+  y = 3
 
   for line in instructions.split('\n'):
     if line:
@@ -23,15 +31,13 @@ def getBathroomCode(instructions):
         x += movesx[c]
         y += movesy[c]
 
-        if x < 0 or x > 2:
+        if keypad[y][x] == '*':
           x -= movesx[c]
-
-        if y < 0 or y > 2:
           y -= movesy[c]
 
-      code.append(3*y + x + 1)
+      code.append(keypad[y][x])
 
-  return ''.join(map(str, code))
+  return ''.join(code)
 
 def main():
   print(getBathroomCode(sys.stdin.read()))
