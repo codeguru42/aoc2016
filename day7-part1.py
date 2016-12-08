@@ -8,7 +8,7 @@ class Day7Part1(unittest.TestCase):
 
   def test2(self):
     ip = "abcd[bddb]xyyx"
-    self.assertTrue(supportsTLS(ip))
+    self.assertFalse(supportsTLS(ip))
 
   def test3(self):
     ip = "aaaa[qwer]tyui"
@@ -44,7 +44,7 @@ class Day7Part1(unittest.TestCase):
 
   def test11(self):
     s = 'qrst'
-    self.assertTrue(containsABBA(s))
+    self.assertFalse(containsABBA(s))
 
 def containsABBA(s):
   abbaRegex = r'(.)(.)\2\1'
@@ -59,20 +59,12 @@ def supportsTLS(ip):
 
   m = ipRegex.match(ip)
   while m:
-    print(m.group(0))
     ipABBA = ipABBA or containsABBA(m.group(0))
-    print("ip result:", ipABBA)
     m = hypernetRegex.match(ip, m.end())
     if m:
-      print(m.group(0))
       hypernetABBA = hypernetABBA or containsABBA(m.group(1))
-      print("hypernet result:", hypernetABBA)
       m = ipRegex.match(ip, m.end())
 
-  if m:
-    print(m.group(0))
-
-  print("result:", ipABBA and not hypernetABBA)
   return ipABBA and not hypernetABBA
 
 def main():
