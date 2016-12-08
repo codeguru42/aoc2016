@@ -52,17 +52,28 @@ def containsABBA(s):
   return match and match.group(1) != match.group(2)
 
 def supportsTLS(ip):
+  ipABBA = False
+  hypernetABBA = False
   ipRegex = re.compile(r'[^[]*')
-  hypernetRegex = re.compile(r'\[[^]]*\]')
+  hypernetRegex = re.compile(r'\[([^]]*)\]')
 
   m = ipRegex.match(ip)
   while m:
     print(m.group(0))
+    ipABBA = ipABBA or containsABBA(m.group(0))
+    print("ip result:", ipABBA)
     m = hypernetRegex.match(ip, m.end())
     if m:
       print(m.group(0))
+      hypernetABBA = hypernetABBA or containsABBA(m.group(1))
+      print("hypernet result:", hypernetABBA)
       m = ipRegex.match(ip, m.end())
-  print(m.group(0))
+
+  if m:
+    print(m.group(0))
+
+  print("result:", ipABBA and not hypernetABBA)
+  return ipABBA and not hypernetABBA
 
 def main():
   pass
