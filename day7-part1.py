@@ -1,4 +1,5 @@
 import unittest
+import re
 
 class Day7Part1(unittest.TestCase):
   def test1(self):
@@ -46,7 +47,8 @@ class Day7Part1(unittest.TestCase):
     self.assertTrue(containsABBA(s))
 
 def containsABBA(s):
-  pass
+  abbaRegex = r'(.)(.)\2\1'
+  return re.search(abbaRegex, s)
 
 def supportsTLS(ip):
   pass
