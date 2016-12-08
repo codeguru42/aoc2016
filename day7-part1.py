@@ -48,7 +48,8 @@ class Day7Part1(unittest.TestCase):
 
 def containsABBA(s):
   abbaRegex = r'(.)(.)\2\1'
-  return re.search(abbaRegex, s)
+  match = re.search(abbaRegex, s)
+  return match and match.group(1) != match.group(2)
 
 def supportsTLS(ip):
   pass
