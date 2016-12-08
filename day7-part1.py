@@ -45,6 +45,12 @@ class Day7Part1(unittest.TestCase):
     s = 'qrst'
     self.assertTrue(containsABBA(s))
 
+def containsABBA(s):
+  pass
+
+def supportsTLS(ip):
+  pass
+
 def main():
   pass
 
