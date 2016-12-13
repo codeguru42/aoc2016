@@ -21,23 +21,26 @@ class Day7Part2(unittest.TestCase):
 
   def test5(self):
     supernet = "aba"
-    self.assertTrue(hasABA(supernet))
+    self.assertTrue(getABA(supernet))
 
   def test6(self):
     supernet = "xyx"
-    self.assertTrue(hasABA(supernet))
+    self.assertTrue(getABA(supernet))
 
   def test7(self):
     supernet = "aaa"
-    self.assertFalse(hasABA(supernet))
+    self.assertFalse(getABA(supernet))
 
   def test8(self):
     supernet = "zazbz"
-    self.assertTrue(hasABA(supernet))
+    self.assertTrue(getABA(supernet))
 
-def hasABA(supernet):
-  supernet_pattern = r'(.).\1'
-  return re.search(supernet_pattern, supernet)
+def getABA(supernet):
+  supernet_pattern = r'(.)(.)\1'
+  m = re.search(supernet_pattern, supernet)
+  if m:
+    return m.group(0)
+  return None
 
 def main():
   pass
