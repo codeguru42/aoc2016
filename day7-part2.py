@@ -62,6 +62,11 @@ def getABA(supernet):
     return m.group(0)
   return None
 
+def hasBAB(hypernet, aba):
+  hypernet_pattern = r'(.)(.)\1'
+  m = re.search(hypernet_pattern, hypernet)
+  return m and m.group(1) == aba[1] and m.group(2) == aba[0]
+
 def main():
   pass
 
