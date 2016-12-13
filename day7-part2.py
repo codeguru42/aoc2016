@@ -105,5 +105,5 @@ def main():
   print(sum(supportsSSL(ip.strip()) for ip in sys.stdin))
 
 if __name__ == "__main__":
-  unittest.main(exit=False)
-  main()
+  if unittest.main(exit=False).result.wasSuccessful():
+    main()
