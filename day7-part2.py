@@ -90,8 +90,6 @@ class DSMExamples(unittest.TestCase):
         self.assertEqual(result, supportsSSL(ip))
 
 def getABA(supernet):
-  print("  getABA()")
-  print("    supernet:", supernet)
   supernet_pattern = r'(.)(.)\1'
   m = re.search(supernet_pattern, supernet)
   if m and m.group(1) != m.group(2):
@@ -119,8 +117,6 @@ def hasBAB(hypernet, aba):
 
 
 def supportsSSL(ip):
-  print("\nsupportsSSL()")
-  print("  ip:", ip)
   supernetRegex = re.compile(r'[^[]*')
   hypernetRegex = re.compile(r'\[([^]]*)\]')
   aba_list = []
@@ -134,10 +130,7 @@ def supportsSSL(ip):
       hypernet_list.append(m.group(1))
       m = supernetRegex.match(ip, m.end())
 
-  print("  aba_list:", aba_list)
-  print("  hypernet_list:", hypernet_list)
   has_bab_list = [hasBAB(hypernet, aba) for hypernet in hypernet_list for aba in aba_list]
-  print("  has_bab_list:", has_bab_list)
   return any(has_bab_list)
 
 def main():
