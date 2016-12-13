@@ -79,6 +79,7 @@ def hasBAB(hypernet, aba):
 
 
 def supportsSSL(ip):
+  print("supportsSSL()")
   supernetRegex = re.compile(r'[^[]*')
   hypernetRegex = re.compile(r'\[([^]]*)\]')
   aba_list = []
@@ -86,20 +87,22 @@ def supportsSSL(ip):
 
   m = supernetRegex.match(ip)
   while m:
-    print("supernet:", m.group(0))
+    print("  supernet:", m.group(0))
     aba_list.extend(getAllABA(m.group(0)))
     m = hypernetRegex.match(ip, m.end())
     if m:
       hypernet_list.append(m.group(1))
       m = supernetRegex.match(ip, m.end())
 
-  print("aba_list:", aba_list)
-  print("hypernet_list:", hypernet_list)
+  print("  aba_list:", aba_list)
+  print("  hypernet_list:", hypernet_list)
   has_bab_list = [hasBAB(hypernet, aba) for hypernet in hypernet_list for aba in aba_list]
+  print("  has_bab_list:", has_bab_list)
   return any(has_bab_list)
 
 def main():
-  pass
+  print("**** main() ****")
+  print(sum(supportsSSL(ip.strip()) for ip in sys.stdin))
 
 if __name__ == "__main__":
   unittest.main(exit=False)
