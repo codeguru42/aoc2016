@@ -2,7 +2,7 @@ import unittest
 import re
 import sys
 
-class Day7Part1(unittest.TestCase):
+class Day7Part2(unittest.TestCase):
   def test1(self):
     ip = "aba[bab]xyz"
     self.assertTrue(supportsSSL(ip))
@@ -33,7 +33,11 @@ class Day7Part1(unittest.TestCase):
 
   def test8(self):
     supernet = "zazbz"
-    self.assertFalse(hasABA(supernet))
+    self.assertTrue(hasABA(supernet))
+
+def hasABA(supernet):
+  supernet_pattern = r'(.).\1'
+  return re.search(supernet_pattern, supernet)
 
 def main():
   pass
