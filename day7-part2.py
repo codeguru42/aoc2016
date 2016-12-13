@@ -19,6 +19,22 @@ class Day7Part1(unittest.TestCase):
     ip = "zazbz[bzb]cdb"
     self.assertTrue(supportsSSL(ip))
 
+  def test5(self):
+    supernet = "aba"
+    self.assertTrue(hasABA(supernet))
+
+  def test6(self):
+    supernet = "xyx"
+    self.assertTrue(hasABA(supernet))
+
+  def test7(self):
+    supernet = "aaa"
+    self.assertFalse(hasABA(supernet))
+
+  def test8(self):
+    supernet = "zazbz"
+    self.assertFalse(hasABA(supernet))
+
 def main():
   pass
 
