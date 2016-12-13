@@ -56,11 +56,21 @@ class Day7Part2(unittest.TestCase):
     self.assertTrue(hasBAB(hypernet, aba))
 
 def getABA(supernet):
+  print("getABA()")
+  print("  supernet:", supernet)
   supernet_pattern = r'(.)(.)\1'
   m = re.search(supernet_pattern, supernet)
   if m and m.group(1) != m.group(2):
     return m.group(0)
   return None
+
+def getAllABA(supernet):
+  sub = supernet
+  aba = getABA(sub)
+  while aba:
+    yield aba
+    sub = sub[sub.find(aba) + 1:]
+    aba = getABA(sub)
 
 def hasBAB(hypernet, aba):
   hypernet_pattern = r'(.)(.)\1'
@@ -77,9 +87,7 @@ def supportsSSL(ip):
   m = supernetRegex.match(ip)
   while m:
     print("supernet:", m.group(0))
-    aba = getABA(m.group(0))
-    if aba:
-      aba_list.append(aba)
+    aba_list.extend(getAllABA(m.group(0)))
     m = hypernetRegex.match(ip, m.end())
     if m:
       hypernet_list.append(m.group(1))
