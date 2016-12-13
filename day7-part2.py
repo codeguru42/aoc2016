@@ -38,7 +38,7 @@ class Day7Part2(unittest.TestCase):
 def getABA(supernet):
   supernet_pattern = r'(.)(.)\1'
   m = re.search(supernet_pattern, supernet)
-  if m:
+  if m and m.group(1) != m.group(2):
     return m.group(0)
   return None
 
