@@ -35,6 +35,26 @@ class Day7Part2(unittest.TestCase):
     supernet = "zazbz"
     self.assertTrue(getABA(supernet))
 
+  def test9(self):
+    aba = "aba"
+    hypernet = "bab"
+    self.assertTrue(hasBAB(hypernet, aba))
+
+  def test10(self):
+    aba = "xyx"
+    hypernet = "xyx"
+    self.assertFalse(hasBAB(hypernet, aba))
+
+  def test11(self):
+    aba = "eke"
+    hypernet = "kek"
+    self.assertTrue(hasBAB(hypernet, aba))
+
+  def test12(self):
+    aba = "zbz"
+    hypernet = "bzb"
+    self.assertTrue(hasBAB(hypernet, aba))
+
 def getABA(supernet):
   supernet_pattern = r'(.)(.)\1'
   m = re.search(supernet_pattern, supernet)
