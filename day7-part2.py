@@ -67,6 +67,29 @@ def hasBAB(hypernet, aba):
   m = re.search(hypernet_pattern, hypernet)
   return m and m.group(1) == aba[1] and m.group(2) == aba[0]
 
+
+def supportsSSL(ip):
+  supernetRegex = re.compile(r'[^[]*')
+  hypernetRegex = re.compile(r'\[([^]]*)\]')
+  aba_list = []
+  hypernet_list = []
+
+  m = supernetRegex.match(ip)
+  while m:
+    print("supernet:", m.group(0))
+    aba = getABA(m.group(0))
+    if aba:
+      aba_list.append(aba)
+    m = hypernetRegex.match(ip, m.end())
+    if m:
+      hypernet_list.append(m.group(1))
+      m = supernetRegex.match(ip, m.end())
+
+  print("aba_list:", aba_list)
+  print("hypernet_list:", hypernet_list)
+  has_bab_list = [hasBAB(hypernet, aba) for hypernet in hypernet_list for aba in aba_list]
+  return any(has_bab_list)
+
 def main():
   pass
 
