@@ -141,11 +141,9 @@ def getAllABA(supernet):
     aba = getABA(sub)
 
 def hasBAB(hypernet, aba):
-  print("  hasBAB()")
   hypernet_pattern = re.compile(r'(.)(.)\1')
   m = hypernet_pattern.search(hypernet)
   while m:
-    print("    m:", m)
     if m.group(1) == aba[1] and m.group(2) == aba[0]:
       return True
     m = hypernet_pattern.search(hypernet, m.start() + 1)
