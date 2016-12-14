@@ -56,26 +56,17 @@ class Day7Part2(unittest.TestCase):
     self.assertTrue(hasBAB(hypernet, aba))
 
 class DSMExamples(unittest.TestCase):
-  def __init__(self, name, ip=None, supportsSSL=None):
-    super(DSMExamples, self).__init__(name)
-    self.ip = ip
-    self. supportsSSL = supportsSSL
-
-  def testDSM(self):
-    self.assertEqual(self.supportsSSL, supportsSSL(self.ip))
-
-def load_tests(loader, tests, pattern):
-  print("load_tests()")
   foobar = [('luqpeubugunvgzdqk[jfnihalscclrffkxqz]wvzpvmpfiehevybbgpg[esjuempbtmfmwwmqa]rhflhjrqjbbsadjnyc\n', False),
             ('eyunqqdlsaasqfbhwpc[fpmanqdfvhrosxaptp]aeyfdxouzzuuuxteclt[ganxlwtfygldvdhoquf]paymaxgcegdvovaqxya[ylnriprhjdnkuntzp]oqfodnpayolcntvpo\n', True),
             ('xdsqxnovprgovwzkus[fmadbfsbqwzzrzrgdg]aeqornszgvbizdm\n', False),
             ('uxpvoytxfazjjhi[qogwhtzmwxvjwxreuz]zduoybbzxigwggwu[lamifchqqwbphhsqnf]qrjdjwtnhsjqftnqsk[bsqinwypsnnvougrs]wfmhtjkysqffllakru\n', True),
             ('pbpsdnornxrjozbhegt[olfscmqufczzthv]sjrnzixklvlzapmv[boflyiiyupvpoyyo]gagojlnkgjkidipsfc\n', False),
             ('piurduvwvigtuwnjnpj[mirushebmxoukqttq]nksxdnhcjfaymiuua[dkihhehyhjvenynticl]nmrfbzilhhvjfobbof[jqahcpebhcbqyvostx]mnyaeppulzktgjgki\n', False)]
-  test_suite = unittest.TestSuite()
-  for ip, result in foobar:
-    test_suite.addTest(DSMExamples("testDSM", ip, result))
-  return test_suite
+
+  def testDSM(self):
+    for ip, result in DSMExamples.foobar:
+      with self.subTest(ip=ip):
+        self.assertEqual(result, supportsSSL(ip))
 
 def getABA(supernet):
   print("  getABA()")
