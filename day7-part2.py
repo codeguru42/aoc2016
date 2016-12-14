@@ -55,6 +55,11 @@ class Day7Part2(unittest.TestCase):
     hypernet = "bzb"
     self.assertTrue(hasBAB(hypernet, aba))
 
+  def test13(self):
+    aba="ada"
+    hypernet = "adadc"
+    self.assertTrue(hasBAB(hypernet, aba))
+
 class DSMExamples(unittest.TestCase):
   foobar = [('slkisqowpneowabctk[ryhlzrkziabbnbnele]hvionqkbewzdbly\n', False),
       ('djekfwpsoiihcfd[hncjbxkkecscjvuzqo]akeczaajzyrqllj[bzfnzoikwvbxeryrwxb]dagmghjivjknvvgmm\n', False),
@@ -75,7 +80,9 @@ class DSMExamples(unittest.TestCase):
       ('adgejfziulqubtv[kkhvflrrzzlpdqlqjqh]nqzlyincexbxbwakws[vzgkmpczegsfcewpft]nlreyilbmrcyrykqkwj[mehvkuhgphblsycjoi]lgzqxetzdqodirlqlkf\n', True),
       ('vueefgllnygexoagq[vlnoffjbojjloomfgf]zwgejsiuosklvzdva[frxlizqlpfzbzbe]phtllgfghshchbwjy[jhsqiybxyziobqnrgc]hqptbpfplshpshfkp\n', True),
       ('bevdijrwuekuzxeftyh[magmjngccsxxyre]ocionfzaxjarewqjeyw[gdnhfenokdklsbckv]jbiqkhvyhvddkdg\n', True),
-      ('juamwbaymppduonwy[veisidgxqzjsndd]ouyigdcdjmeotgt[fnffnevbhtftewfu]ulkngkhascpefee[ypwcdcthzatxafpir]xybcxlqnmauyrezyfi\n', True)]
+      ('juamwbaymppduonwy[veisidgxqzjsndd]ouyigdcdjmeotgt[fnffnevbhtftewfu]ulkngkhascpefee[ypwcdcthzatxafpir]xybcxlqnmauyrezyfi\n', True),
+      ('bcbdc[adadc]adaed', True),
+      ('aba[abab]ad', True)]
 
   def testDSM(self):
     for ip, result in DSMExamples.foobar:
