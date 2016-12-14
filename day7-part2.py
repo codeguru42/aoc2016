@@ -60,42 +60,6 @@ class Day7Part2(unittest.TestCase):
     hypernet = "adadc"
     self.assertTrue(hasBAB(hypernet, aba))
 
-  def test14(self):
-    ip = "bcbwbvyvqpozfig[twwsbwyhvfaddwo]jogvkczzowocmkwwlla[yedsazzkeklftvohfqz]tghtcjemmehumuyxar"
-    self.assertTrue(supportsSSL(ip))
-
-  def test15(self):
-    ip = "gfgrgtizxajkaicjcc[mftrzuftzrgrwilsv]uckwgxywnamzjglbnts"
-    self.assertFalse(supportsSSL(ip))
-
-  def test16(self):
-    ip = "hzqfveaxrqycvuolynx[ztsmaipixbuhbmv]ebvofyoeponbpip"
-    self.assertFalse(supportsSSL(ip))
-
-  def test17(self):
-    ip = "vwwekuavrftztxb[aywyoempmajrdkxpsc]eibnjbszsfsapujqn[rxpcsihuzszefcdzl]gsahdvozzgxjhontxk"
-    self.assertFalse(supportsSSL(ip))
-
-  def test18(self):
-    ip = "efuoofbuyjoaqjd[achnmlslfvovmgt]xcuyvikslsewgqlx[gjxolnhgqhhglojjqhy]iarxidejlgphqwaei"
-    self.assertFalse(supportsSSL(ip))
-
-  def test19(self):
-    ip = "uxpcurtzqgpgtzkvp[mibqtgwackcedfri]otnnsgolldyzdpbew[tmgiijgjuvjykwahml]xxgjgzmnicxmywdubrb[hwhcgbzhuoankdubft]rxqzywfyuliatahn"
-    self.assertFalse(supportsSSL(ip))
-
-  def test20(self):
-    ip = "abbhujqyoaphnruaih[yidrkxgrxeoarph]fvryghhzqrobkbsck[dnokdwmkbktlfoihxl]ttptfiadsswiwsfbvf"
-    self.assertFalse(supportsSSL(ip))
-
-  def test21(self):
-    ip = "djwqivpbexyvdquh[qmmdydhjbmunyjixviv]nradabzesdavhasjbjs[lsabjblhocebvyhfee]hwbyvnzltgezasg"
-    self.assertFalse(supportsSSL(ip))
-
-  def test22(self):
-    ip = "dxnkgspqhyejogxstsk[jfgckouqypxttst]axtisjbtaviwafh"
-    self.assertFalse(supportsSSL(ip))
-
 class DSMExamples(unittest.TestCase):
   foobar = [('slkisqowpneowabctk[ryhlzrkziabbnbnele]hvionqkbewzdbly\n', False),
       ('djekfwpsoiihcfd[hncjbxkkecscjvuzqo]akeczaajzyrqllj[bzfnzoikwvbxeryrwxb]dagmghjivjknvvgmm\n', False),
