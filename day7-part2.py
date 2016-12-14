@@ -56,12 +56,26 @@ class Day7Part2(unittest.TestCase):
     self.assertTrue(hasBAB(hypernet, aba))
 
 class DSMExamples(unittest.TestCase):
-  foobar = [('luqpeubugunvgzdqk[jfnihalscclrffkxqz]wvzpvmpfiehevybbgpg[esjuempbtmfmwwmqa]rhflhjrqjbbsadjnyc\n', False),
-            ('eyunqqdlsaasqfbhwpc[fpmanqdfvhrosxaptp]aeyfdxouzzuuuxteclt[ganxlwtfygldvdhoquf]paymaxgcegdvovaqxya[ylnriprhjdnkuntzp]oqfodnpayolcntvpo\n', True),
-            ('xdsqxnovprgovwzkus[fmadbfsbqwzzrzrgdg]aeqornszgvbizdm\n', False),
-            ('uxpvoytxfazjjhi[qogwhtzmwxvjwxreuz]zduoybbzxigwggwu[lamifchqqwbphhsqnf]qrjdjwtnhsjqftnqsk[bsqinwypsnnvougrs]wfmhtjkysqffllakru\n', True),
-            ('pbpsdnornxrjozbhegt[olfscmqufczzthv]sjrnzixklvlzapmv[boflyiiyupvpoyyo]gagojlnkgjkidipsfc\n', False),
-            ('piurduvwvigtuwnjnpj[mirushebmxoukqttq]nksxdnhcjfaymiuua[dkihhehyhjvenynticl]nmrfbzilhhvjfobbof[jqahcpebhcbqyvostx]mnyaeppulzktgjgki\n', False)]
+  foobar = [('slkisqowpneowabctk[ryhlzrkziabbnbnele]hvionqkbewzdbly\n', False),
+      ('djekfwpsoiihcfd[hncjbxkkecscjvuzqo]akeczaajzyrqllj[bzfnzoikwvbxeryrwxb]dagmghjivjknvvgmm\n', False),
+      ('pgstdunvpkygdhxf[nkcpvzkilrxjoie]mzahevvdtrwxytc[arwlmsgbyreyxpmprqx]hojyzxqqjylfjusttkq\n', False),
+      ('yrmxbhvwfhllkihaep[nahzalqadgjfoflr]whnvkzquqklzkymykd[jgujzpbnzrbzafeh]kbqccktgyczgsfgcrie[rgdkferemxzfjhrj]cqncbhflmhtonlarf\n', False),
+      ('pridigkxnsmwjnubj[tqyowmooyyzxxcoxp]bdatmjremximbvgkla[bymfroqflneczdyrj]qqfzxjwrpzxoiba[bdwgvaubttwwhkgzlvl]ybqpwobmbkwclvlit\n', False),
+      ('hlqxlmjtkmjwjrxzvb[nwhgxypfvrlwznxmx]wjwddpfcprmkgmabb[plpqkkvhdboebwjcxi]pdonethdwrptyyfo\n', False),
+      ('xlegdhcmxpzdzjlay[liydzajrkaufrswav]uemkomlqqoatvvntqj[kjktwnakakpceoy]yygdrowvnacguirorml\n', False),
+      ('ftipvtztetqweblic[urqdmhfkxxfnrrcsib]awbpwyprdvmvwgzzepe[vkutvypzjyryaayih]nmrfmuniuzzkhluqgx\n', False),
+      ('gilmfvvjrximlddz[vxvpnelnnkyzhnsljzi]mlhgdduohhvtyraxlu\n', False),
+      ('xiiwosblocyedaexck[uibalcgupzlxmfj]pmcrxohfqmosqxbnnt\n', False),
+      ('dtzqgkdzdxwltggn[vshtllabynzdzifr]gjzwjvbezsudnllkjb\n', True),
+      ('olisquqoqosqhvpxrn[noqojsemxsklzfjd]xmirfofadjmjrur[syaizhzpmmwrqvnkwlk]dmcempjwxzbucpylcb\n', True),
+      ('njdolrhgbbnxckxk[ydkpwcoijeozgessd]kcuekavfxreeouyc[eqceqfiwzxkrghgisl]amvuicsywffrdvjhhco[vosewgsiwozagpux]gocrhghscjbkypdg\n', True),
+      ('asozoseeexjlnujfox[izozytydhsdtwnv]allqlztvpwabunjh\n', True),
+      ('udfruyrgqsusxqc[ocqpcqumszwgunhju]qvposnnngjcjolnh[dlrivxihlkusulblxzb]yziglhmzfxyyluo\n', True),
+      ('evaliqomffjqjmobfz[tcceyhouujtlcgvgujy]fdwjohlrxmtximkvgv\n', True),
+      ('adgejfziulqubtv[kkhvflrrzzlpdqlqjqh]nqzlyincexbxbwakws[vzgkmpczegsfcewpft]nlreyilbmrcyrykqkwj[mehvkuhgphblsycjoi]lgzqxetzdqodirlqlkf\n', True),
+      ('vueefgllnygexoagq[vlnoffjbojjloomfgf]zwgejsiuosklvzdva[frxlizqlpfzbzbe]phtllgfghshchbwjy[jhsqiybxyziobqnrgc]hqptbpfplshpshfkp\n', True),
+      ('bevdijrwuekuzxeftyh[magmjngccsxxyre]ocionfzaxjarewqjeyw[gdnhfenokdklsbckv]jbiqkhvyhvddkdg\n', True),
+      ('juamwbaymppduonwy[veisidgxqzjsndd]ouyigdcdjmeotgt[fnffnevbhtftewfu]ulkngkhascpefee[ypwcdcthzatxafpir]xybcxlqnmauyrezyfi\n', True)]
 
   def testDSM(self):
     for ip, result in DSMExamples.foobar:
