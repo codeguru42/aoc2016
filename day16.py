@@ -2,24 +2,34 @@ import unittest
 
 class DragonTest(unittest.TestCase):
   def test1(self):
-    binary = "1"
+    data = "1"
     expected = "100"
-    self.assertEqual(expected, dragon(binary))
+    self.assertEqual(expected, dragon(data))
 
   def test2(self):
-    binary = "0"
+    data = "0"
     expected = "001"
-    self.assertEqual(expected, dragon(binary))
+    self.assertEqual(expected, dragon(data))
 
   def test3(self):
-    binary = "11111"
+    data = "11111"
     expected = "11111000000"
-    self.assertEqual(expected, dragon(binary))
+    self.assertEqual(expected, dragon(data))
 
   def test4(self):
-    binary = "111100001010"
+    data = "111100001010"
     expected = "1111000010100101011110000"
-    self.assertEqual(expected, dragon(binary))
+    self.assertEqual(expected, dragon(data))
+
+  def test5(self):
+    data = "10000"
+    expected = "10000011110"
+    self.assertEqual(expected, dragon(data))
+
+  def test6(self):
+    data = "10000011110"
+    expected = "10000011110010000111110"
+    self.assertEqual(expected, dragon(data))
 
 class ChecksumTest(unittest.TestCase):
   def test1(self):
