@@ -14,9 +14,7 @@ print(count)
 count = 0
 for group in zip(*[iter(lines)] * 3):
   triangles = list(map(str.split, group))
-  print("triangles:", triangles)
   for i in range(3):
-    print(triangles[0][i], triangles[1][i], triangles[2][i])
-    if is_triangle(triangles[0][i], triangles[1][i], triangles[2][i]):
+    if is_triangle(int(triangles[0][i]), int(triangles[1][i]), int(triangles[2][i])):
       count += 1
 print(count)
