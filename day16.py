@@ -111,7 +111,10 @@ def checksum(data):
   pass
 
 def fill_disk(size, initial):
-  pass
+  if len(initial) > size:
+    return initial[:size]
+
+  return fill_disk(size, dragon(initial))
 
 if __name__ == "__main__":
   unittest.main()
