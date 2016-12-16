@@ -70,6 +70,27 @@ class FillDiskTest(unittest.TestCase):
     expected = "10000011110010000111"
     self.assertEqual(expected, fill_disk(disk_size, initial))
 
+class BitwiseNotTest(unittest.TestCase):
+  def test1(self):
+    bits = "0"
+    expected = "1"
+    self.assertEqual(expected, bitwise_not(bits))
+
+  def test2(self):
+    bits = "1"
+    expected = "0"
+    self.assertEqual(expected, bitwise_not(bits))
+
+  def test3(self):
+    bits = "11111"
+    expected = "00000"
+    self.assertEqual(expected, bitwise_not(bits))
+
+  def test4(self):
+    bits = "111100001010"
+    expected = "000011110101"
+    self.assertEqual(expected, bitwise_not(bits))
+
 def dragon(a):
   b = bitwise_not(a.reversed())
   return a + "0" + b
