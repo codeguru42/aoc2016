@@ -108,7 +108,10 @@ def checksumStep(data):
   pass
 
 def checksum(data):
-  pass
+  result = checksumStep(data)
+  while len(result) % 2:
+    result = checksumStep(result)
+  return result
 
 def fill_disk(size, initial):
   if len(initial) > size:
