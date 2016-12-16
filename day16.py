@@ -70,5 +70,17 @@ class FillDiskTest(unittest.TestCase):
     expected = "10000011110010000111"
     self.assertEqual(expected, fill_disk(disk_size, initial))
 
+def dragon(initial):
+  pass
+
+def checksumStep(data):
+  pass
+
+def checksum(data):
+  pass
+
+def fill_disk(size, initial):
+  pass
+
 if __name__ == "__main__":
   unittest.main()
