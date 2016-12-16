@@ -128,4 +128,5 @@ def fill_disk(size, initial):
   return fill_disk(size, dragon(initial))
 
 if __name__ == "__main__":
-  unittest.main()
+  if unittest.main(exit=False).result.wasSuccessful():
+    print(checksum(fill_disk(272, '01111001100111011')))
