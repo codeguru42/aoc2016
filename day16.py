@@ -130,3 +130,4 @@ def fill_disk(size, initial):
 if __name__ == "__main__":
   if unittest.main(exit=False).result.wasSuccessful():
     print(checksum(fill_disk(272, '01111001100111011')))
+    print(checksum(fill_disk(35651584, '01111001100111011')))
