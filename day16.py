@@ -70,8 +70,9 @@ class FillDiskTest(unittest.TestCase):
     expected = "10000011110010000111"
     self.assertEqual(expected, fill_disk(disk_size, initial))
 
-def dragon(initial):
-  pass
+def dragon(a):
+  b = bitwise_not(a.reversed())
+  return a + "0" + b
 
 def checksumStep(data):
   pass
