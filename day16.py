@@ -63,5 +63,12 @@ class ChecksumStepTest(unittest.TestCase):
     expected = "01100"
     self.assertEqual(expected, checksumStep(data))
 
+class FillDiskTest(unittest.TestCase):
+  def test1(self):
+    initial = "10000"
+    disk_size = 20
+    expected = "10000011110010000111"
+    self.assertEqual(expected, fill_disk(disk_size, initial))
+
 if __name__ == "__main__":
   unittest.main()
