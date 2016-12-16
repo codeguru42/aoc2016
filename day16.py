@@ -50,7 +50,7 @@ class ChecksumStepTest(unittest.TestCase):
 
   def test2(self):
     data = "110101"
-    expected = "110101"
+    expected = "100"
     self.assertEqual(expected, checksumStep(data))
 
   def test3(self):
@@ -105,11 +105,19 @@ def bitwise_not(bits):
   return ''.join(map(bit_not, bits))
 
 def checksumStep(data):
-  pass
+  def xor(a, b):
+    def xor_bit(b1, b2):
+      if b1 == b2:
+        return '1'
+      return '0'
+    return ''.join(map(xor_bit, a, b))
+  a = data[::2]
+  b = data[1::2]
+  return xor(a, b)
 
 def checksum(data):
   result = checksumStep(data)
-  while len(result) % 2:
+  while len(result) % 2 == 0:
     result = checksumStep(result)
   return result
 
