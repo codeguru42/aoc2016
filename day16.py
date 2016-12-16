@@ -92,8 +92,17 @@ class BitwiseNotTest(unittest.TestCase):
     self.assertEqual(expected, bitwise_not(bits))
 
 def dragon(a):
-  b = bitwise_not(a.reversed())
+  b = bitwise_not(a[::-1])
   return a + "0" + b
+
+def bitwise_not(bits):
+  def bit_not(bit):
+    if bit == '0':
+      return '1'
+    elif bit == '1':
+      return '0'
+
+  return ''.join(map(bit_not, bits))
 
 def checksumStep(data):
   pass
