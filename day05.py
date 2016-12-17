@@ -78,3 +78,4 @@ if __name__ == "__main__":
   if unittest.main(exit=False).result.wasSuccessful():
     door_id = 'abbhdwsy'
     print(get_password(door_id))
+    print(get_better_password(door_id))
