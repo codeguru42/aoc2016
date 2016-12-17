@@ -29,5 +29,8 @@ class MD5Test(unittest.TestCase):
     result = self.m.hexdigest()
     self.assertEqual('00000', result[:5])
 
+def get_password(door_id):
+  pass
+
 if __name__ == "__main__":
   unittest.main()
