@@ -35,6 +35,12 @@ class MD5Test(unittest.TestCase):
     result = self.m.hexdigest()
     self.assertEqual('00000', result[:5])
 
+class BetterPasswordTest(unittest.TestCase):
+  def test1(self):
+    door_id = 'abc'
+    password = '05ace8e3'
+    self.assertEqual(password, get_better_password(door_id))
+
 def generate_password(door_id):
   i = 0
   while True:
@@ -50,4 +56,6 @@ def get_password(door_id):
   return ''.join(itertools.islice(generate_password(door_id), 8))
 
 if __name__ == "__main__":
-  unittest.main()
+  if unittest.main(exit=False).result.wasSuccessful():
+    door_id = 'abbhdwsy'
+    print(get_password(door_id))
