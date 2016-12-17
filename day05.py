@@ -55,6 +55,25 @@ def generate_password(door_id):
 def get_password(door_id):
   return ''.join(itertools.islice(generate_password(door_id), 8))
 
+def get_better_password(door_id):
+  password = ['*'] * 8
+  i = 0
+  found = 0
+  while True:
+    m = hashlib.md5()
+    indexed_door_id = (door_id + str(i)).encode('utf-8')
+    m.update(indexed_door_id)
+    md5hash = m.hexdigest()
+    if md5hash[:5] == '00000':
+      if md5hash[5].isdigit():
+        index = int(md5hash[5])
+        if index >= 0 and index < 8 and password[index] == '*':
+          found += 1
+          password[index] = md5hash[6]
+          if found == 8:
+            return ''.join(password)
+    i += 1
+
 if __name__ == "__main__":
   if unittest.main(exit=False).result.wasSuccessful():
     door_id = 'abbhdwsy'
