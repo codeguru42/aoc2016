@@ -1,6 +1,12 @@
 import unittest
 import hashlib
 
+class PasswordTest(unittest.TestCase):
+  def test1(self):
+    door_id = 'abc'
+    password = 'abbhdwsy'
+    self.assertEqual(password, get_password(door_id))
+
 class MD5Test(unittest.TestCase):
   def setUp(self):
     self.m = hashlib.md5()
