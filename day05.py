@@ -1,11 +1,17 @@
 import unittest
 import hashlib
+import itertools
 
 class PasswordTest(unittest.TestCase):
   def test1(self):
     door_id = 'abc'
-    password = 'abbhdwsy'
+    password = '18f47a30'
     self.assertEqual(password, get_password(door_id))
+
+  def test2(self):
+    door_id = 'abc'
+    password_iter = iter(generate_password(door_id))
+    self.assertEqual('1', next(password_iter))
 
 class MD5Test(unittest.TestCase):
   def setUp(self):
@@ -29,8 +35,19 @@ class MD5Test(unittest.TestCase):
     result = self.m.hexdigest()
     self.assertEqual('00000', result[:5])
 
+def generate_password(door_id):
+  i = 0
+  while True:
+    m = hashlib.md5()
+    indexed_door_id = (door_id + str(i)).encode('utf-8')
+    m.update(indexed_door_id)
+    md5hash = m.hexdigest()
+    if md5hash[:5] == '00000':
+      yield md5hash[5]
+    i += 1
+
 def get_password(door_id):
-  pass
+  return ''.join(itertools.islice(generate_password(door_id), 8))
 
 if __name__ == "__main__":
   unittest.main()
