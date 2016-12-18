@@ -75,9 +75,9 @@ def count_safe(row):
 
 if __name__ == "__main__":
   if unittest.main(exit=False).result.wasSuccessful():
-    row = sys.stdin.readline()
+    row = sys.stdin.readline().strip()
     count = count_safe(row)
-    for i in range(40):
+    for i in range(1, 40):
       row = get_next_row(row)
       count += count_safe(row)
     print(count)
