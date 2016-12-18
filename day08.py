@@ -9,6 +9,12 @@ class ScreenTest(unittest.TestCase):
     expected = '###....\n###....\n.......'
     self.assertEquals(expected, str(self.screen))
 
+  def testRotateColumn(self):
+    self.screen.rect(3, 2)
+    self.screen.rotate_column(1, 1)
+    expected = '#.#....\n###....\n.#.....'
+    self.assertEquals(expected, str(self.screen))
+
 class screen:
   def __init__(self, width, height):
     self.width = width
