@@ -4,14 +4,44 @@ import sys
 
 class NextRowTest(unittest.TestCase):
   def test1(self):
+    row = '..^^.'
+    next_row = '.^^^^'
+    self.assertEqual(next_row, get_next_row(row))
+
+  def test2(self):
     row = '.^^^^'
     next_row = '^^..^'
     self.assertEqual(next_row, get_next_row(row))
 
+  def test3(self):
+    row = '.^^.^.^^^^'
+    next_row = '^^^...^..^'
+    self.assertEqual(next_row, get_next_row(row))
+
+  def test4(self):
+    row = '^^^...^..^'
+    next_row = '^.^^.^.^^.'
+    self.assertEqual(next_row, get_next_row(row))
+
 class CountSafeTest(unittest.TestCase):
   def test1(self):
+    row = '..^^.'
+    result = 3
+    self.assertEqual(result, count_safe(row))
+
+  def test2(self):
     row = '.^^^^'
     result = 1
+    self.assertEqual(result, count_safe(row))
+
+  def test3(self):
+    row = '^^..^'
+    result = 2
+    self.assertEqual(result, count_safe(row))
+
+  def test4(self):
+    row = '.^^.^.^^^^'
+    result = 3
     self.assertEqual(result, count_safe(row))
 
 def window(seq, n=2):
