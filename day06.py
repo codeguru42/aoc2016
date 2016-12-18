@@ -21,9 +21,9 @@ class Day6Part1Test(unittest.TestCase):
               dvrsen
               enarar'''
     message = 'easter'
-    self.assertEqual(message, get_message(io.StringIO(data)))
+    self.assertEqual(message, get_message(io.StringIO(data), select_max))
 
-def get_message(data):
+def get_message(data, select):
   counts = None
   for line in data:
     line = line.strip()
@@ -34,14 +34,18 @@ def get_message(data):
 
   message = []
   for d in counts:
-    maxCount = 0
-    for key in d:
-      if d[key] > maxCount:
-        maxCount = d[key]
-        c = key
+    c = select(d)
     message.append(c)
   return ''.join(message)
 
+def select_max(d):
+  maxCount = 0
+  for key in d:
+    if d[key] > maxCount:
+      maxCount = d[key]
+      c = key
+  return c
+
 if __name__ == '__main__':
   if unittest.main(exit=False).result.wasSuccessful():
-    print(get_message(sys.stdin))
+    print(get_message(sys.stdin, select_max))
