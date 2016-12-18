@@ -3,25 +3,30 @@ import io
 import sys
 
 class Day6Part1Test(unittest.TestCase):
+  data = '''eedadn
+            drvtee
+            eandsr
+            raavrd
+            atevrs
+            tsrnev
+            sdttsa
+            rasrtv
+            nssdts
+            ntnada
+            svetve
+            tesnvt
+            vntsnd
+            vrdear
+            dvrsen
+            enarar'''
+
   def test1(self):
-    data = '''eedadn
-              drvtee
-              eandsr
-              raavrd
-              atevrs
-              tsrnev
-              sdttsa
-              rasrtv
-              nssdts
-              ntnada
-              svetve
-              tesnvt
-              vntsnd
-              vrdear
-              dvrsen
-              enarar'''
     message = 'easter'
-    self.assertEqual(message, get_message(io.StringIO(data), select_max))
+    self.assertEqual(message, get_message(io.StringIO(Day6Part1Test.data), select_max))
+
+  def test2(self):
+    message = 'advent'
+    self.assertEqual(message, get_message(io.StringIO(Day6Part1Test.data), select_min))
 
 def get_message(data, select):
   counts = None
@@ -46,6 +51,16 @@ def select_max(d):
       c = key
   return c
 
+def select_min(d):
+  minCount = sys.maxsize
+  for key in d:
+    if d[key] < minCount:
+      minCount = d[key]
+      c = key
+  return c
+
 if __name__ == '__main__':
   if unittest.main(exit=False).result.wasSuccessful():
-    print(get_message(sys.stdin, select_max))
+    data = sys.stdin.read()
+    print(get_message(io.StringIO(data), select_max))
+    print(get_message(io.StringIO(data), select_min))
