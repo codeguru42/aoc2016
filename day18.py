@@ -1,5 +1,6 @@
 import unittest
 import itertools
+import sys
 
 class NextRowTest(unittest.TestCase):
   def test1(self):
@@ -44,4 +45,9 @@ def count_safe(row):
 
 if __name__ == "__main__":
   if unittest.main(exit=False).result.wasSuccessful():
-    pass
+    row = sys.stdin.readline()
+    count = count_safe(row)
+    for i in range(40):
+      row = get_next_row(row)
+      count += count_safe(row)
+    print(count)
