@@ -7,6 +7,12 @@ class NextRowTest(unittest.TestCase):
     next_row = '^^..^'
     self.assertEqual(next_row, get_next_row(row))
 
+class CountSafeTest(unittest.TestCase):
+  def test1(self):
+    row = '.^^^^'
+    result = 1
+    self.assertEqual(result, count_safe(row))
+
 def window(seq, n=2):
   it = iter(seq)
   result = tuple(itertools.islice(it, n))
@@ -28,6 +34,13 @@ def get_next_row(row):
     else:
       next_row.append('.')
   return ''.join(next_row)
+
+def count_safe(row):
+  count = 0
+  for t in row:
+    if t == '.':
+      count += 1
+  return count
 
 if __name__ == "__main__":
   if unittest.main(exit=False).result.wasSuccessful():
