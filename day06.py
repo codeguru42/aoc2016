@@ -21,5 +21,8 @@ class Day6Part1Test(unittest.TestCase):
     message = 'easter'
     self.assertEqual(message, get_message(data))
 
+def get_message(data):
+  pass
+
 if __name__ == '__main__':
   unittest.main()
