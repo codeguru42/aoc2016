@@ -81,3 +81,7 @@ if __name__ == "__main__":
       row = get_next_row(row)
       count += count_safe(row)
     print(count)
+    for i in range(40, 400000):
+      row = get_next_row(row)
+      count += count_safe(row)
+    print(count)
