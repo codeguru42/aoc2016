@@ -66,6 +66,11 @@ def get_next_row(row):
       next_row.append('.')
   return ''.join(next_row)
 
+def iterate(f, x):
+  while True:
+    yield x
+    x = f(x)
+
 def count_safe(row):
   count = 0
   for t in row:
@@ -75,13 +80,13 @@ def count_safe(row):
 
 if __name__ == "__main__":
   if unittest.main(exit=False).result.wasSuccessful():
-    row = sys.stdin.readline().strip()
-    count = count_safe(row)
-    for i in range(1, 40):
-      row = get_next_row(row)
+    first_row = sys.stdin.readline().strip()
+    count = 0
+    for row in itertools.islice(iterate(get_next_row, first_row), 40):
       count += count_safe(row)
     print(count)
-    for i in range(40, 400000):
-      row = get_next_row(row)
+
+    count = 0
+    for row in itertools.islice(iterate(get_next_row, first_row), 400000):
       count += count_safe(row)
     print(count)
