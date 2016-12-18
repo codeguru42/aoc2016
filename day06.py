@@ -1,5 +1,6 @@
 import unittest
 import io
+import sys
 
 class Day6Part1Test(unittest.TestCase):
   def test1(self):
@@ -42,4 +43,5 @@ def get_message(data):
   return ''.join(message)
 
 if __name__ == '__main__':
-  unittest.main()
+  if unittest.main(exit=False).result.wasSuccessful():
+    print(get_message(sys.stdin))
